@@ -1,20 +1,20 @@
-PImage iphone_front;
-
-
+int screen=0;color screen_color=color(255,255,255);
+PImage temp_icon;
+PFont font;
 
 void setup() {
-  size(340,700);
-  background(0);
-  iphone_front=loadImage("iphone_front.jpg");
+  size(350,700);
+  temp_icon=loadImage("temp_icon.png");
+  font=loadFont("CourierNewPSMT-48.vlw");
 }
 
 void draw() {
-image(iphone_front,0,0);  
-fill(255);
-ellipse(170,669,53,53);
-fill(0);
-ellipse(170,669,25,25);
-println(mouseX);
-println(mouseY);
+  switch(screen){
+    
+    case 0: home_screen();
+            break;
+  
+   case 1:app_screen();
+           break;
 }
-
+}
