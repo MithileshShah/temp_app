@@ -1,9 +1,19 @@
+import static javax.swing.JOptionPane.*;// java gui library
+
+
 int screen=0;color screen_color=color(255,255,255);
 PImage temp_icon;
 PFont font;
-
+boolean p_id=false;
+PButton button1;//Patient History
+PButton button2;//Get Temperature
+PButton button3;//Call Doctor
+//Pbutton button4;
 void setup() {
   size(350,700);
+  
+  button2 = new PButton(20, 100, " Get Temperature ");
+  button1= new PButton(20,200," Patient Data");
   temp_icon=loadImage("temp_icon.png");
   font=loadFont("CourierNewPSMT-48.vlw");
 }
@@ -15,6 +25,9 @@ void draw() {
             break;
   
    case 1:app_screen();
+          if(!p_id){
+          pop_up();
+          }
            break;
 }
 }

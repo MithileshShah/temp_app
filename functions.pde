@@ -1,16 +1,28 @@
 void home_screen() {
   iphone();
+  fill(0,0,255);
   rect(45, 90, 50, 60, 5, 5, 5, 5);
   image(temp_icon, 47, 95, 50, 50);
-  text("temp_app", 42, 165);
-  println(mouseX);
-  println(mouseY);
+  fill(0);
+  textFont(font,48);
+  textSize(16);
+  text("temp_app", 35, 166,16);
+  //println(mouseX);
+  //println(mouseY);
 }
 
+void pop_up(){
+
+final String id = showInputDialog("Please enter Patient ID");
+println(id);
+p_id=true;
+}
 void app_screen() {
   screen_color=color(255,0,0);
   iphone();
-  textFont(font,48);
+  button1.draw();
+  button2.draw();
+  textSize(48);
  ellipse(192,275,10,10);
   text("37 C",130,300);
 }
