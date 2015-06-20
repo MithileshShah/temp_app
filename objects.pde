@@ -1,9 +1,10 @@
 class PButton {
-  int x, y;
+  int x, y,bwidth;
   String label;
 
-  PButton(int x, int y, String label) {
+  PButton(int x, int y,int bwidth, String label) {
     this.x=x;
+    this.bwidth=bwidth;
     this.y=y;
     this.label=label;
   }
@@ -12,14 +13,14 @@ class PButton {
     if(over()){
       fill(255);
     }
-  rect(x,y,textWidth(label),35);
+  rect(x,y,bwidth,35);
   fill(0);
   textSize(25);
   text(label,x,y+25);
   
   }
   boolean over(){
-    if(mouseX >= x-19 && mouseY >= y-12 && mouseX <= x + textWidth(label) && mouseY <= y + 15){
+    if(mouseX >= x-19 && mouseY >= y-12 && mouseX <= x + bwidth && mouseY <= y + 15){
   return true;
     }
     return false;

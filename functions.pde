@@ -1,7 +1,7 @@
 void home_screen() {
   iphone();
-  fill(0,0,255);
-  rect(45, 90, 50, 60, 5, 5, 5, 5);
+ // fill(0,0,255);
+ // rect(45, 90, 50, 60, 5, 5, 5, 5);
   image(temp_icon, 47, 95, 50, 50);
   fill(0);
   textFont(font,48);
@@ -32,7 +32,12 @@ void mousePressed() {
     screen=1;
     println("fired");
   }
+  if(button1.over()){
+    if(!p_id){
+          pop_up();
+          }
   
+  }
 } 
 void iphone() {
     fill(0);

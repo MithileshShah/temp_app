@@ -12,8 +12,8 @@ PButton button3;//Call Doctor
 void setup() {
   size(350,700);
   
-  button2 = new PButton(20, 100, " Get Temperature ");
-  button1= new PButton(20,200," Patient Data");
+  button2 = new PButton(20, 100,250, " Get Temperature ");
+  button1= new PButton(20,200,200," Patient Data");
   temp_icon=loadImage("temp_icon.png");
   font=loadFont("CourierNewPSMT-48.vlw");
 }
@@ -25,9 +25,7 @@ void draw() {
             break;
   
    case 1:app_screen();
-          if(!p_id){
-          pop_up();
-          }
+          
            break;
 }
 }
