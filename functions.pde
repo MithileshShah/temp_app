@@ -22,9 +22,20 @@ void app_screen() {
   iphone();
   button1.draw();
   button2.draw();
+  button3.draw();
   textSize(48);
  ellipse(192,275,10,10);
   text("37 C",130,300);
+   println(mouseX);
+  println(mouseY);
+}
+
+void data_screen(){
+  screen_color=color(255,255,255);
+ iphone();
+ button4.draw();
+ text("Hold it steady",50,300);
+ text("facing the target",55,350);
 }
 
 void mousePressed() {
@@ -32,11 +43,14 @@ void mousePressed() {
     screen=1;
     println("fired");
   }
-  if(button1.over()){
+  if(button1.over()&& screen==1){
+  
+  }
+  if(button2.over()&& screen==1){
     if(!p_id){
           pop_up();
           }
-  
+    screen=2;
   }
 } 
 void iphone() {

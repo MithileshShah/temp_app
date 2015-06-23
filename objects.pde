@@ -20,7 +20,7 @@ class PButton {
   
   }
   boolean over(){
-    if(mouseX >= x-19 && mouseY >= y-12 && mouseX <= x + bwidth && mouseY <= y + 15){
+    if(mouseX >= x && mouseY >= y && mouseX <= x + bwidth && mouseY <= y + 20){
   return true;
     }
     return false;
