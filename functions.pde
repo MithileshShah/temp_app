@@ -33,9 +33,22 @@ void app_screen() {
 void data_screen(){
   screen_color=color(255,255,255);
  iphone();
+ if(!temp_flag){
  button4.draw();
+ }
+ else if(chck_target && temp_flag){
  text("Hold it steady",50,300);
  text("facing the target",55,350);
+ }
+ else if(chck_target){
+ text("Measuring Temp",50,350);
+ }
+ else{
+ textSize(28);
+ text(temp_avg,50,300);
+ }
+ 
+ 
 }
 
 void mousePressed() {
@@ -44,13 +57,16 @@ void mousePressed() {
     println("fired");
   }
   if(button1.over()&& screen==1){
-  
+  screen=3;
   }
   if(button2.over()&& screen==1){
     if(!p_id){
           pop_up();
           }
     screen=2;
+  }
+  if(button4.over()&& screen==2){
+      ArduinoPort.write(1);
   }
 } 
 void iphone() {

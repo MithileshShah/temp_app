@@ -15,23 +15,30 @@ void check_target(){
       }
     }
     if(count==50){
-      serial.print("OK.")
+      SendToProcessing('A',0);
       }
-    
+    else{
+      SendToProcessing('E',0);
+      }
     
     }
 
   
   
   
-  }
+  
 
 void send_temp(){
     float temp_data[50];
     temp_c=mlx.readObjectTempC();
     for(int i=0;i<=49;i++){
-    temp_data[i]=temp_c;
+    ave.push(temp_c);
     }
-    temp_avg=mean(temp_data,50);
-    Serial.print(temp_avg+".");
+    temp_avg=ave.mean();
+    SendToProcessing('T',temp_avg);
  }
+void SendToProcessing(char a,int data){
+  Serial.print(a);
+  Serial.println(data);
+  
+  }

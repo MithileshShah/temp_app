@@ -2,11 +2,12 @@ import static javax.swing.JOptionPane.*;// java gui library
 import processing.serial.*;
 Serial ArduinoPort;
 
-int screen=0;
+int screen=0;float temp_avg=0.0;
 color screen_color=color(255, 255, 255);
 PImage temp_icon;
 PFont font;
-boolean p_id=false;
+boolean p_id=false;//flag to check patient id
+boolean chck_target=false,error=false,temp_flag=false;
 String temp_c="", data="";
 PButton button1;//Patient History
 PButton button2;//Get Temperature

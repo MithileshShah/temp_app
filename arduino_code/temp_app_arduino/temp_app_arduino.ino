@@ -2,7 +2,7 @@
 
 #include<Wire.h>
 #include <Adafruit_MLX90614.h>
-
+ Average<float> ave(50);
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 float temp_c,temp_avg;
 int data=0;
