@@ -5,9 +5,9 @@ Serial ArduinoPort;
 int screen=0;float temp_avg=0.0;
 color screen_color=color(255, 255, 255);
 PImage temp_icon;
-PFont font;
+PFont font; String id="0";
 boolean p_id=false;//flag to check patient id
-boolean chck_target=false,error=false,temp_flag=false;
+boolean start_pressed=false,error=false,temp_flag=false;
 String temp_c="", data="";
 PButton button1;//Patient History
 PButton button2;//Get Temperature
@@ -17,9 +17,9 @@ PButton button4;//Start measurement
 
 void setup() {
   size(350, 700);
-  // ArduinoPort= new Serial(this,"COM3","9600");
-  //ArduinoPort.clear();
-  // ArduinoPort.bufferUntil(".");
+  ArduinoPort = new Serial(this, "COM4", 9600);
+  ArduinoPort.clear();
+  ArduinoPort.bufferUntil('\n');
 
   button2 = new PButton(20, 100, 250, " Get Temperature ");
   button1= new PButton(20, 200, 200, " Patient Data");

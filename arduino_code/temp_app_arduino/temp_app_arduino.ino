@@ -6,22 +6,25 @@
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 float temp_c,temp_avg;
 int data=0;
+boolean flag;// flag to check target is stable;
 void setup() {
   Serial.begin(9600);
+  Serial.flush();
   mlx.begin();
   
 
 }
 
 void loop() {
-  switch(data){
-    case 0:
+   while(Serial.available()==0);
 
-    case 1:check_target();
+   int val =Serial.read() - 48;
 
-    case 2:send_temp();
+   if (val == 1){
+    send_temp();
     
+    }
     
     }
 
-}
+

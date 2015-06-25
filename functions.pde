@@ -6,15 +6,15 @@ void home_screen() {
   fill(0);
   textFont(font,48);
   textSize(16);
-  text("temp_app", 35, 166,16);
+  text("Tapansh", 40, 166,16);
   //println(mouseX);
   //println(mouseY);
 }
 
 void pop_up(){
 
-final String id = showInputDialog("Please enter Patient ID");
-println(id);
+id = showInputDialog("Please enter Patient ID");
+
 p_id=true;
 }
 void app_screen() {
@@ -33,20 +33,24 @@ void app_screen() {
 void data_screen(){
   screen_color=color(255,255,255);
  iphone();
+ textSize(18);
+ text("Patient id= "+id,50,100);
  if(!temp_flag){
  button4.draw();
- }
- else if(chck_target && temp_flag){
- text("Hold it steady",50,300);
+ text("Hold the sensor",50,300);
  text("facing the target",55,350);
- }
- else if(chck_target){
- text("Measuring Temp",50,350);
+ if(!start_pressed)
+ text("Press Start",55,400);
  }
  else{
- textSize(28);
- text(temp_avg,50,300);
+ textSize(40);
+ text(temp_avg,40,300);
+ text("*C",220,300);
  }
+ if(start_pressed){
+ text("Measuring..",100,200);
+  }
+ 
  
  
 }
@@ -66,7 +70,8 @@ void mousePressed() {
     screen=2;
   }
   if(button4.over()&& screen==2){
-      ArduinoPort.write(1);
+      ArduinoPort.write(49);
+      start_pressed=true;
   }
 } 
 void iphone() {
