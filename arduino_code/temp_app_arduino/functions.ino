@@ -8,7 +8,7 @@ void send_temp(){
    SendToProcessing('T',avg);
   
   }
-void SendToProcessing(char a,int data){
+void SendToProcessing(char a,float data){
   Serial.print(a);
   Serial.println(data);
   

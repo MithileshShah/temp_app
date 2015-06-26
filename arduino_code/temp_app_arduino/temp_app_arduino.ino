@@ -1,8 +1,10 @@
-#include <Average.h>
+#include <Average.h>// library for averaging 
 
-#include<Wire.h>
+#include<Wire.h>//I2C library
+
 #include <Adafruit_MLX90614.h>
- Average<float> ave(50);
+
+ Average<float> ave(50);//array to hold temperature values
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
 float temp_c,temp_avg;
 int data=0;
