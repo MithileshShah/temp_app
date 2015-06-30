@@ -15,7 +15,6 @@ void home_screen() {
 void pop_up() {
 
   id = showInputDialog("Please enter Patient ID");
-
   p_id=true;
 }
 void app_screen() {
@@ -25,7 +24,7 @@ void app_screen() {
   button2.draw();
   button3.draw();
   textSize(48);
-
+  text(ambient_temp + "*C",50,550);
   println(mouseX);
   println(mouseY);
 }
@@ -44,10 +43,12 @@ void data_screen() {
   } else {
     textSize(40);
     text(temp_avg, 40, 300);
-    text("*C", 220, 300);
+    text("*F", 220, 300);
     button5.draw();
-    if(temp_avg >= 40.000){
-    text("Temperature too high",50,450);
+    if(!save){
+    tts.speak(temp_avg + " Degree Farenheit");}
+    if(temp_avg >= 100.000){
+    text("Temperature too high",40,450);
     button3.draw();
     }
   }
@@ -69,6 +70,8 @@ void mousePressed() {
   if (mouseX>=147&&mouseY>=630&&mouseX<=197&&mouseY<=680) {
     screen=0;
     println("Home Screen");
+    temp_flag=false;
+    start_pressed=false;
   }
   if (button1.over()&& screen==1) {
     screen=3;
@@ -84,6 +87,7 @@ void mousePressed() {
     start_pressed=true;
   }
   if (button5.over() && screen==2) {
+    save=true;
     d=day();
     m=month();
     y=year();
@@ -143,5 +147,11 @@ void plot_graph() {
   ellipse(220, 220, 10, 10);
   ellipse(260, 280, 10, 10);
   ellipse(300, 250, 10, 10);
+  line(65,160,100,220);
+  line(100,220,140,230);
+  line(140,230,190,260);
+  line(190,260,220,220);
+  line(220,220,260,280);
+  line(260,280,300,250);
 }
 

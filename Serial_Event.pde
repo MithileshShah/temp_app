@@ -8,4 +8,8 @@ if(data.charAt(0)=='T'){
   temp_flag=true;
   start_pressed=false;
 }
+if(data.charAt(0)=='A'){
+  data=data.substring(1);
+  ambient_temp=float(data);
+}
 }

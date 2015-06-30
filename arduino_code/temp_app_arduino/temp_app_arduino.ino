@@ -4,16 +4,17 @@
 
 #include <Adafruit_MLX90614.h>
 
- Average<float> ave(50);//array to hold temperature values
+ Average<float> ave(100);//array to hold temperature values
 Adafruit_MLX90614 mlx = Adafruit_MLX90614();
-float temp_c,temp_avg;
+float temp_c,temp_avg,ambient_temp;
 int data=0;
 boolean flag;// flag to check target is stable;
 void setup() {
   Serial.begin(9600);
   Serial.flush();
   mlx.begin();
-  
+  ambient_temp=mlx.readAmbientTempC();
+  SendToProcessing('A',ambient_temp);
 
 }
 
