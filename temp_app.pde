@@ -2,8 +2,9 @@ import static javax.swing.JOptionPane.*;// java gui library
 import processing.serial.*;
 import guru.ttslib.*;
 Serial ArduinoPort;
-
 TTS tts;
+//Table data;//csv table for temperature data
+
 int screen=0;float temp_avg=0.0;
 color screen_color=color(255, 255, 255);
 PImage temp_icon;

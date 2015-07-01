@@ -45,8 +45,8 @@ void data_screen() {
     text(temp_avg, 40, 300);
     text("*F", 220, 300);
     button5.draw();
-    if(!save){
-    tts.speak(temp_avg + " Degree Farenheit");}
+    //if(!save){
+    //tts.speak(temp_avg + " Degree Farenheit");}
     if(temp_avg >= 100.000){
     text("Temperature too high",40,450);
     button3.draw();
